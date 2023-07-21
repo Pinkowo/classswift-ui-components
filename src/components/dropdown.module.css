@@ -1,0 +1,122 @@
+.dropdown {
+    position: relative;
+    width: 360px;
+    height: var(--height);
+}
+
+.dropdown button {
+    padding-left: 15px;
+    font: normal normal normal 16px/22px Source Sans Pro;
+    width: 100%;
+}
+
+.select {
+    border-radius: var(--corner);
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    transition: 0.3s ease;
+    position: relative;
+    line-height: 83%;
+    padding: 0;
+
+    height: 100%;
+    border: 1px solid #BDBDBD;
+    color: #000000;
+
+}
+
+.select:hover {
+    background-color: #F5F5F5;
+    cursor: pointer;
+}
+
+.disabledSelect {
+    border-radius: var(--corner);
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    transition: 0.3s ease;
+    position: relative;
+    line-height: 83%;
+
+    height: 100%;
+    border: 1px solid #BDBDBD;
+    color: #BDBDBD;
+}
+
+.arrow {
+    position: absolute;
+    right: 16px;
+}
+
+.disabledArrow path {
+    fill: #BDBDBD;
+}
+
+.selected {
+    border-radius: var(--corner) var(--corner) 0 0;
+    transition: 0.3s ease;
+}
+
+.modal {
+    position: absolute;
+    border-radius: 0 0 var(--corner) var(--corner);
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #BDBDBD;
+    border-top: 0;
+
+    z-index: 2;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.selectedSplit {
+    border-radius: var(--corner);
+    transition: 0.3s ease;
+}
+
+.modalSplit {
+    top: calc(100% + 8px);
+    border-radius: var(--corner);
+    border-top: 1px solid #BDBDBD;
+}
+
+.modal button {
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    align-items: center;
+
+    height: var(--height);
+    color: #2E3133;
+}
+
+.modal button:hover {
+    cursor: pointer;
+    background-color: #EBEBEB;
+}
+
+
+.modal button:last-child:hover {
+    border-radius: 0 0 var(--corner) var(--corner);
+}
+
+.showModal {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.hideModal {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.modal::-webkit-scrollbar {
+    width: 0px;
+    background-color: transparent;
+    border-radius: 4px;
+}

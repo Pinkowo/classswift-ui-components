@@ -1,0 +1,70 @@
+.button {
+    box-sizing: border-box;
+    border-radius: var(--corner);
+    width: 360px;
+    height: var(--height);
+    font: normal normal 600 16px/22px Source Sans Pro;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.default {
+    background-color: var(--main);
+    border: 2px solid var(--main);
+    color: #fff;
+}
+
+.defaultOpacity {
+    background-color: #ffffff00;
+    border: 2px solid var(--main);
+    color: var(--main);
+}
+
+.default:hover,
+.defaultOpacity:hover {
+    background-color: var(--hover);
+    border: 2px solid var(--hover);
+    cursor: pointer;
+    color: #fff;
+}
+
+.default:active,
+.defaultOpacity:active {
+    background-color: var(--active);
+    border: 2px solid var(--active);
+    color: #fff;
+}
+
+.disabled {
+    background-color: var(--disabled);
+    border: 2px solid var(--disabled);
+    color: #fff;
+}
+
+.disabledOpacity {
+    background-color: #F5F5F5;
+    border: 2px solid var(--disabled);
+    color: var(--disabled);
+}
+
+.loading {
+    background-color: var(--active);
+    border: 2px solid var(--active);
+}
+
+.spinner {
+    width: 70%;
+    height: 70%;
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

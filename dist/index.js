@@ -33,6 +33,7 @@ Object.defineProperty(exports, "Inputfield", {
     return _Input.Inputfield;
   }
 });
+require("./index.module.css");
 var _Button = require("./Button");
 var _Input = require("./Input");
 var _Dropdown = require("./Dropdown");

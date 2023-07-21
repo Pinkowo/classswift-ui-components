@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './app.module.css';
-import { Button, Inputfield, Dropdown, DropButton } from './components';
+import { Button, Inputfield, Dropdown, DropButton } from './components/index';
 
 function App() {
   const [value, setValue] = React.useState('');

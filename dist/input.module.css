@@ -1,0 +1,83 @@
+.input::-ms-reveal {
+    display: none;
+}
+
+.container {
+    width: 360px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.longInput {
+    width: 744px;
+}
+
+.label {
+    text-align: left;
+    font: normal normal normal 16px/20px Source Sans Pro;
+    letter-spacing: 0.38px;
+    color: #2E3133;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+}
+
+.star {
+    color: #E60026;
+}
+
+.input {
+    width: 100%;
+    height: var(--height);
+    background-color: #fff;
+    border: 1px solid #BDBDBD;
+    border-radius: var(--corner);
+    padding: 0 16px;
+    outline: none;
+    text-align: left;
+    font: normal normal normal 16px/22px Source Sans Pro;
+    letter-spacing: 0.51px;
+    color: #000000;
+    box-sizing: border-box;
+}
+
+.input:focus {
+    border: 1px solid var(--main);
+}
+
+.nameLength {
+    color: #BDBDBD;
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.error {
+    border: 1px solid #E60026;
+}
+
+.eye {
+    cursor: pointer;
+    user-select: none;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+}
+
+.eyeDisabled {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    pointer-events: none;
+}
+
+.eyeDisabled path {
+    fill: #BDBDBD;
+}

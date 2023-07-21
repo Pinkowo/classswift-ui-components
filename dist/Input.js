@@ -1,15 +1,18 @@
 "use strict";
 
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.Label = exports.Inputfield = exports.Input = void 0;
-var _react = require("react");
+var _react = _interopRequireWildcard(require("react"));
 var _inputModule = _interopRequireDefault(require("./input.module.css"));
 var _Icon_Visibility_01_On = require("./assets/Icon_Visibility_01_On.svg");
 var _Icon_Visibility_01_Off = require("./assets/Icon_Visibility_01_Off.svg");
 var _validation = require("./utils/validation");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -22,16 +25,16 @@ var Inputfield = function Inputfield(props) {
     _useState2 = _slicedToArray(_useState, 2),
     showPassword = _useState2[0],
     setShowPassword = _useState2[1];
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", {
     className: "".concat(_inputModule.default.container, " ").concat(props.isLong ? _inputModule.default.longInput : '', " \n        ").concat(props.inputClass),
     style: props.style
-  }, props.text && /*#__PURE__*/React.createElement(Label, {
+  }, props.text && /*#__PURE__*/_react.default.createElement(Label, {
     text: props.text
-  }), /*#__PURE__*/React.createElement(Input, _extends({}, props, {
+  }), /*#__PURE__*/_react.default.createElement(Input, _extends({}, props, {
     showPassword: showPassword
-  })), props.maxLength && /*#__PURE__*/React.createElement("span", {
+  })), props.maxLength && /*#__PURE__*/_react.default.createElement("span", {
     className: _inputModule.default.nameLength
-  }, props.value.length, "/", props.maxLength), props.type === 'password' && /*#__PURE__*/React.createElement(Eye, {
+  }, props.value.length, "/", props.maxLength), props.type === 'password' && /*#__PURE__*/_react.default.createElement(Eye, {
     showPassword: showPassword,
     setShowPassword: setShowPassword,
     value: props.value
@@ -79,7 +82,7 @@ var Input = function Input(_ref) {
       if (newAns.length <= maxLength) setValue(ans);else setValue(ans.substring(0, maxLength));
     } else setValue(ans);
   };
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("input", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("input", {
     type: showPassword ? 'text' : type,
     value: value,
     name: name,
@@ -93,9 +96,9 @@ var Input = function Input(_ref) {
 exports.Input = Input;
 var Label = function Label(_ref2) {
   var text = _ref2.text;
-  return /*#__PURE__*/React.createElement("label", {
+  return /*#__PURE__*/_react.default.createElement("label", {
     className: _inputModule.default.label
-  }, text, /*#__PURE__*/React.createElement("span", {
+  }, text, /*#__PURE__*/_react.default.createElement("span", {
     className: _inputModule.default.star
   }, " *"));
 };
@@ -104,17 +107,17 @@ var Eye = function Eye(_ref3) {
   var showPassword = _ref3.showPassword,
     setShowPassword = _ref3.setShowPassword,
     value = _ref3.value;
-  return /*#__PURE__*/React.createElement(React.Fragment, null, value && showPassword && /*#__PURE__*/React.createElement(_Icon_Visibility_01_On.ReactComponent, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, value && showPassword && /*#__PURE__*/_react.default.createElement(_Icon_Visibility_01_On.ReactComponent, {
     className: _inputModule.default.eye,
     onClick: function onClick() {
       return setShowPassword(false);
     }
-  }), value && !showPassword && /*#__PURE__*/React.createElement(_Icon_Visibility_01_Off.ReactComponent, {
+  }), value && !showPassword && /*#__PURE__*/_react.default.createElement(_Icon_Visibility_01_Off.ReactComponent, {
     className: _inputModule.default.eye,
     onClick: function onClick() {
       return setShowPassword(true);
     }
-  }), !value && /*#__PURE__*/React.createElement(_Icon_Visibility_01_Off.ReactComponent, {
+  }), !value && /*#__PURE__*/_react.default.createElement(_Icon_Visibility_01_Off.ReactComponent, {
     className: _inputModule.default.eyeDisabled
   }));
 };

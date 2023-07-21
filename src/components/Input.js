@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './input.module.css';
 import { ReactComponent as OpenEye } from './assets/Icon_Visibility_01_On.svg';
 import { ReactComponent as CloseEye } from './assets/Icon_Visibility_01_Off.svg';

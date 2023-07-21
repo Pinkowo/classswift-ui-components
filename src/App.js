@@ -15,15 +15,15 @@ function App() {
       <Inputfield text="帳號" type="text" isLong={false}
         value={value} setValue={setValue} inputClass={style.input} />
 
-      <Dropdown value={dropValue} setValue={setDropValue} disabled={false}
-        className={{ dropdown: style.dropdown, select: style.select, modal: style.modal }}>
+      <Dropdown value={dropValue} setValue={setDropValue} disabled={true}
+        dropdownClass={{ dropdown: style.dropdown, select: style.select, modal: style.modal }}>
         <DropButton text="管理員" onClick={() => console.log('1')} />
         <DropButton text="教師" onClick={() => console.log('2')} />
         <DropButton text="學生" onClick={() => console.log('3')} />
       </Dropdown>
 
       <Dropdown value={number} setValue={setNumber} scrollHeight={196} isSplit={true}
-        className={{ dropdown: style.dropdown, select: style.select, modal: style.modal }}>
+        dropdownClass={{ dropdown: style.dropdown, select: style.select, modal: style.modal }}>
         {arrayFrom1To30.map((item) => (
           <DropButton key={item} text={item} />
         ))}

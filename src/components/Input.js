@@ -8,7 +8,7 @@ export const Inputfield = (props) => {
     const [showPassword, setShowPassword] = useState(false);
     return (
         <div className={`${style.container} ${props.isLong ? style.longInput : ''} 
-        ${props.inputClass}`} style={props.style}>
+        ${props.inputClass}`} style={props.inputStyle}>
             {props.text && <Label text={props.text} />}
             <Input {...props} showPassword={showPassword} />
             {props.maxLength && <span className={style.nameLength}>

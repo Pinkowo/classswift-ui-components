@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import style from './dropdown.module.css';
 import { ReactComponent as ArrowDown } from './assets/Icon_Arrow_01_Default.svg';
 
-export const Dropdown = ({ value, setValue, children, className, disabled, scrollHeight, isSplit }) => {
+export const Dropdown = ({ value, setValue, children, dropdownClass, disabled, scrollHeight, isSplit }) => {
     const [openModal, setOpenModal] = useState(false);
     const modalRef = useRef(null);
     const buttonRef = useRef(null);
@@ -26,16 +26,16 @@ export const Dropdown = ({ value, setValue, children, className, disabled, scrol
     }, []);
 
     return (
-        <div className={`${style.dropdown} ${className.dropdown}`}>
-            <button type="button" ref={buttonRef} className={`${disabled ? style.disabledSelect : style.select} ${className.select} 
-            ${openModal && !disabled ? isSplit ? style.selectedSplit : style.selected : ''}`}
+        <div className={`${style.dropdown} ${dropdownClass.dropdown}`}>
+            <button type="button" ref={buttonRef} className={`${disabled ? style.disabledSelect : style.select} 
+            ${dropdownClass.select} ${openModal && !disabled ? isSplit ? style.selectedSplit : style.selected : ''}`}
                 onClick={() => setOpenModal(!openModal)}>
                 {value}
-                <ArrowDown className={`${style.arrow} ${disabled ? style.disabledArrow : ''}`} />
+                <ArrowDown className={style.arrow} />
             </button>
             <div ref={modalRef} style={{ maxHeight: scrollHeight }}
                 className={`${style.modal} ${isSplit ? style.modalSplit : ''}
-                ${openModal && !disabled ? style.showModal : style.hideModal} ${className.modal}`}>
+                ${openModal && !disabled ? style.showModal : style.hideModal} ${dropdownClass.modal}`}>
                 {React.Children.map(children, child =>
                     React.cloneElement(child, { setOpenModal, value, setValue, modalRef, scrollHeight })
                 )}

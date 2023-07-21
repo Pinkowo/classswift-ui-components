@@ -31,6 +31,11 @@
     cursor: pointer;
 }
 
+.select:hover .arrow path {
+    fill: #0A8CF0;
+    transition: 0.3s ease;
+}
+
 .disabledSelect {
     border-radius: var(--corner);
     background-color: #fff;
@@ -48,14 +53,21 @@
 .arrow {
     position: absolute;
     right: 16px;
+    transition: 0.3s ease;
 }
 
-.disabledArrow path {
+.disabledSelect .arrow path {
     fill: #BDBDBD;
 }
 
 .selected {
     border-radius: var(--corner) var(--corner) 0 0;
+    transition: 0.3s ease;
+}
+
+.selected .arrow path,
+.selectedSplit .arrow path {
+    fill: #0A8CF0;
     transition: 0.3s ease;
 }
 

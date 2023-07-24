@@ -1,7 +1,7 @@
 import './index.module.css';
 
 import { Button } from './Button';
-import { Input } from './Input';
+import { Input, Label } from './Input';
 import { Dropdown, DropButton } from './Dropdown';
 
-export { Button, Input, Dropdown, DropButton }; 
+export { Button, Input, Label, Dropdown, DropButton }; 

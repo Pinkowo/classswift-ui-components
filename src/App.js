@@ -12,7 +12,7 @@ function App() {
     <div style={{ padding: 50, display: 'flex', flexDirection: 'column', gap: 30 }}>
       <Button text="註冊" onClick={handleClick} disabled />
 
-      <Input text="帳號" type="text" isLong={false} placeholder='請輸入帳號'
+      <Input text="帳號" type="text" placeholder='請輸入帳號' inputStyle={{ width: 182 }}
         value={value} setValue={setValue} inputClass={style.input} maxLength={20} />
 
       <Dropdown value={dropValue} setValue={setDropValue} disabled

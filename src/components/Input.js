@@ -62,14 +62,15 @@ export const InputContent = ({ type = 'text', name, placeholder, value, setValue
             className={`${style.input} 
             ${isError && !disabled ? style.error : ''}
             ${disabled ? style.inputDisabled : ''}`}
+            style={{ paddingRight: maxLength ? 68 : 0 }}
             disabled={disabled}
         />
     );
 };
 
-export const Label = ({ text, hasStar = true }) => {
+export const Label = ({ text, labelStyle, hasStar = true }) => {
     return (
-        <label className={style.label}>
+        <label className={style.label} style={labelStyle}>
             {text}
             {hasStar && <span className={style.star}>*</span>}
         </label>

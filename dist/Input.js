@@ -108,7 +108,7 @@ var Label = function Label(_ref2) {
     className: _inputModule.default.label
   }, text, hasStar && /*#__PURE__*/_react.default.createElement("span", {
     className: _inputModule.default.star
-  }, " *"));
+  }, "*"));
 };
 exports.Label = Label;
 var Eye = function Eye(_ref3) {

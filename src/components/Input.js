@@ -72,7 +72,7 @@ export const Label = ({ text, hasStar = true }) => {
     return (
         <label className={style.label}>
             {text}
-            {hasStar && <span className={style.star}> *</span>}
+            {hasStar && <span className={style.star}>*</span>}
         </label>
     );
 }

@@ -60,7 +60,7 @@
 .nameLength {
     color: #BDBDBD;
     position: absolute;
-    top: 50%;
+    bottom: 9px;
     right: 18px;
     z-index: 1;
     pointer-events: none;

@@ -4,7 +4,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Label = exports.Inputfield = exports.Input = void 0;
+exports.Label = exports.InputContent = exports.Input = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _inputModule = _interopRequireDefault(require("./input.module.css"));
 var _Icon_Visibility_01_On = require("./assets/Icon_Visibility_01_On.svg");
@@ -20,31 +20,34 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var Inputfield = function Inputfield(props) {
+var Input = function Input(props) {
   var _useState = (0, _react.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     showPassword = _useState2[0],
     setShowPassword = _useState2[1];
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "".concat(_inputModule.default.container, " ").concat(props.isLong ? _inputModule.default.longInput : '', " \n        ").concat(props.inputClass),
-    style: props.style
+    style: props.inputStyle
   }, props.text && /*#__PURE__*/_react.default.createElement(Label, {
-    text: props.text
-  }), /*#__PURE__*/_react.default.createElement(Input, _extends({}, props, {
+    text: props.text,
+    hasStar: props.hasStar
+  }), /*#__PURE__*/_react.default.createElement(InputContent, _extends({}, props, {
     showPassword: showPassword
   })), props.maxLength && /*#__PURE__*/_react.default.createElement("span", {
     className: _inputModule.default.nameLength
   }, props.value.length, "/", props.maxLength), props.type === 'password' && /*#__PURE__*/_react.default.createElement(Eye, {
     showPassword: showPassword,
     setShowPassword: setShowPassword,
-    value: props.value
+    value: props.value,
+    disabled: props.disabled
   }));
 };
-exports.Inputfield = Inputfield;
-var Input = function Input(_ref) {
+exports.Input = Input;
+var InputContent = function InputContent(_ref) {
   var _ref$type = _ref.type,
     type = _ref$type === void 0 ? 'text' : _ref$type,
     name = _ref.name,
+    placeholder = _ref.placeholder,
     value = _ref.value,
     setValue = _ref.setValue,
     showPassword = _ref.showPassword,
@@ -65,6 +68,14 @@ var Input = function Input(_ref) {
     if (name === 'passwordConfirm' && value !== form.password) setIsError(true);
     if (name === 'passwordConfirm' && value === form.password) setIsError(false);
   }, [form, name, value]);
+  var onChange = function onChange(e) {
+    return setValue(e.target.value);
+  };
+  var onCompositionEnd = function onCompositionEnd() {
+    if (maxLength) {
+      if (value.length <= maxLength) setValue(value);else setValue(value.substring(0, maxLength));
+    }
+  };
   var onFocus = function onFocus() {
     return setIsError(false);
   };
@@ -75,30 +86,27 @@ var Input = function Input(_ref) {
     if (type === 'tel' && !(0, _validation.validatePhone)(value)) setIsError(true);
     if (name === 'passwordConfirm' && value !== form.password) setIsError(true);
   };
-  var onChange = function onChange(e) {
-    var ans = e.target.value;
-    var newAns = ans.replace(/[\u3105-\u3129\u02CA\u02C7\u02CB\u02D9]+/g, '');
-    if (maxLength) {
-      if (newAns.length <= maxLength) setValue(ans);else setValue(ans.substring(0, maxLength));
-    } else setValue(ans);
-  };
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("input", {
+  return /*#__PURE__*/_react.default.createElement("input", {
     type: showPassword ? 'text' : type,
     value: value,
     name: name,
+    placeholder: placeholder,
     onChange: onChange,
+    onCompositionEnd: onCompositionEnd,
     onFocus: onFocus,
     onBlur: onBlur,
-    className: "".concat(_inputModule.default.input, " \n            ").concat(isError ? _inputModule.default.error : ''),
+    className: "".concat(_inputModule.default.input, " \n            ").concat(isError && !disabled ? _inputModule.default.error : '', "\n            ").concat(disabled ? _inputModule.default.inputDisabled : ''),
     disabled: disabled
-  }));
+  });
 };
-exports.Input = Input;
+exports.InputContent = InputContent;
 var Label = function Label(_ref2) {
-  var text = _ref2.text;
+  var text = _ref2.text,
+    _ref2$hasStar = _ref2.hasStar,
+    hasStar = _ref2$hasStar === void 0 ? true : _ref2$hasStar;
   return /*#__PURE__*/_react.default.createElement("label", {
     className: _inputModule.default.label
-  }, text, /*#__PURE__*/_react.default.createElement("span", {
+  }, text, hasStar && /*#__PURE__*/_react.default.createElement("span", {
     className: _inputModule.default.star
   }, " *"));
 };
@@ -106,18 +114,19 @@ exports.Label = Label;
 var Eye = function Eye(_ref3) {
   var showPassword = _ref3.showPassword,
     setShowPassword = _ref3.setShowPassword,
-    value = _ref3.value;
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, value && showPassword && /*#__PURE__*/_react.default.createElement(_Icon_Visibility_01_On.ReactComponent, {
+    value = _ref3.value,
+    disabled = _ref3.disabled;
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, value && showPassword && !disabled && /*#__PURE__*/_react.default.createElement(_Icon_Visibility_01_On.ReactComponent, {
     className: _inputModule.default.eye,
     onClick: function onClick() {
       return setShowPassword(false);
     }
-  }), value && !showPassword && /*#__PURE__*/_react.default.createElement(_Icon_Visibility_01_Off.ReactComponent, {
+  }), value && !showPassword && !disabled && /*#__PURE__*/_react.default.createElement(_Icon_Visibility_01_Off.ReactComponent, {
     className: _inputModule.default.eye,
     onClick: function onClick() {
       return setShowPassword(true);
     }
-  }), !value && /*#__PURE__*/_react.default.createElement(_Icon_Visibility_01_Off.ReactComponent, {
+  }), (!value || disabled) && /*#__PURE__*/_react.default.createElement(_Icon_Visibility_01_Off.ReactComponent, {
     className: _inputModule.default.eyeDisabled
   }));
 };

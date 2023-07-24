@@ -21,7 +21,7 @@ var Dropdown = function Dropdown(_ref) {
   var value = _ref.value,
     setValue = _ref.setValue,
     children = _ref.children,
-    className = _ref.className,
+    dropdownClass = _ref.dropdownClass,
     disabled = _ref.disabled,
     scrollHeight = _ref.scrollHeight,
     isSplit = _ref.isSplit;
@@ -43,22 +43,22 @@ var Dropdown = function Dropdown(_ref) {
     };
   }, []);
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "".concat(_dropdownModule.default.dropdown, " ").concat(className.dropdown)
+    className: "".concat(_dropdownModule.default.dropdown, " ").concat(dropdownClass.dropdown)
   }, /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     ref: buttonRef,
-    className: "".concat(disabled ? _dropdownModule.default.disabledSelect : _dropdownModule.default.select, " ").concat(className.select, " \n            ").concat(openModal && !disabled ? isSplit ? _dropdownModule.default.selectedSplit : _dropdownModule.default.selected : ''),
+    className: "".concat(disabled ? _dropdownModule.default.disabledSelect : _dropdownModule.default.select, " \n            ").concat(dropdownClass.select, " ").concat(openModal && !disabled ? isSplit ? _dropdownModule.default.selectedSplit : _dropdownModule.default.selected : ''),
     onClick: function onClick() {
       return setOpenModal(!openModal);
     }
   }, value, /*#__PURE__*/_react.default.createElement(_Icon_Arrow_01_Default.ReactComponent, {
-    className: "".concat(_dropdownModule.default.arrow, " ").concat(disabled ? _dropdownModule.default.disabledArrow : '')
+    className: _dropdownModule.default.arrow
   })), /*#__PURE__*/_react.default.createElement("div", {
     ref: modalRef,
     style: {
       maxHeight: scrollHeight
     },
-    className: "".concat(_dropdownModule.default.modal, " ").concat(isSplit ? _dropdownModule.default.modalSplit : '', "\n                ").concat(openModal && !disabled ? _dropdownModule.default.showModal : _dropdownModule.default.hideModal, " ").concat(className.modal)
+    className: "".concat(_dropdownModule.default.modal, " ").concat(isSplit ? _dropdownModule.default.modalSplit : '', "\n                ").concat(openModal && !disabled ? _dropdownModule.default.showModal : _dropdownModule.default.hideModal, " ").concat(dropdownClass.modal)
   }, _react.default.Children.map(children, function (child) {
     return /*#__PURE__*/_react.default.cloneElement(child, {
       setOpenModal: setOpenModal,

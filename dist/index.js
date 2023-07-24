@@ -27,12 +27,6 @@ Object.defineProperty(exports, "Input", {
     return _Input.Input;
   }
 });
-Object.defineProperty(exports, "Inputfield", {
-  enumerable: true,
-  get: function get() {
-    return _Input.Inputfield;
-  }
-});
 require("./index.module.css");
 var _Button = require("./Button");
 var _Input = require("./Input");

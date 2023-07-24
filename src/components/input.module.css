@@ -46,6 +46,22 @@
     border: 1px solid var(--main);
 }
 
+.input::placeholder {
+    color: #BDBDBD;
+}
+
+.input:-ms-input-placeholder {
+    color: #BDBDBD;
+}
+
+.input::-ms-input-placeholder {
+    color: #BDBDBD;
+}
+
+.inputDisabled {
+    color: #C3C7C7;
+}
+
 .nameLength {
     color: #BDBDBD;
     position: absolute;
@@ -53,6 +69,7 @@
     right: 18px;
     z-index: 1;
     pointer-events: none;
+    line-height: 150%;
 }
 
 .error {

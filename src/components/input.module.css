@@ -4,14 +4,9 @@
 
 .container {
     width: 360px;
-    height: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
-}
-
-.longInput {
-    width: 744px;
 }
 
 .label {

@@ -7,9 +7,8 @@ import { validateEmail, validatePassword, validatePhone } from './utils/validati
 export const Input = (props) => {
     const [showPassword, setShowPassword] = useState(false);
     return (
-        <div className={`${style.container} ${props.isLong ? style.longInput : ''} 
-        ${props.inputClass}`} style={props.inputStyle}>
-            {props.text && <Label text={props.text} hasStar={props.hasStar} />}
+        <div className={`${style.container} ${props.inputClass}`} style={props.inputStyle}>
+            {props.label && <Label text={props.label} hasStar={props.hasStar} />}
             <InputContent {...props} showPassword={showPassword} />
             {props.maxLength && <span className={style.nameLength}>
                 {props.value.length}/{props.maxLength}</span>}

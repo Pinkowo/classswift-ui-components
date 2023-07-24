@@ -10,6 +10,7 @@ var _Icon_Loading_01_Default = require("./assets/Icon_Loading_01_Default.svg");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var Button = function Button(_ref) {
   var text = _ref.text,
+    className = _ref.className,
     buttonStyle = _ref.buttonStyle,
     onClick = _ref.onClick,
     disabled = _ref.disabled,
@@ -19,7 +20,7 @@ var Button = function Button(_ref) {
   if (disabled) buttonClass = isOpacity ? _buttonModule.default.disabledOpacity : _buttonModule.default.disabled;
   if (isLoading) buttonClass = _buttonModule.default.loading;
   return /*#__PURE__*/_react.default.createElement("button", {
-    className: "".concat(_buttonModule.default.button, " ").concat(buttonClass, " "),
+    className: "".concat(_buttonModule.default.button, " ").concat(buttonClass, " ").concat(className, " "),
     style: buttonStyle,
     onClick: onClick,
     disabled: disabled || isLoading

@@ -26,10 +26,10 @@ var Input = function Input(props) {
     showPassword = _useState2[0],
     setShowPassword = _useState2[1];
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "".concat(_inputModule.default.container, " ").concat(props.isLong ? _inputModule.default.longInput : '', " \n        ").concat(props.inputClass),
+    className: "".concat(_inputModule.default.container, " ").concat(props.inputClass),
     style: props.inputStyle
-  }, props.text && /*#__PURE__*/_react.default.createElement(Label, {
-    text: props.text,
+  }, props.label && /*#__PURE__*/_react.default.createElement(Label, {
+    text: props.label,
     hasStar: props.hasStar
   }), /*#__PURE__*/_react.default.createElement(InputContent, _extends({}, props, {
     showPassword: showPassword

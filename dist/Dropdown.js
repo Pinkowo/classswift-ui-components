@@ -22,6 +22,7 @@ var Dropdown = function Dropdown(_ref) {
     setValue = _ref.setValue,
     children = _ref.children,
     dropdownClass = _ref.dropdownClass,
+    dropdownStyle = _ref.dropdownStyle,
     disabled = _ref.disabled,
     scrollHeight = _ref.scrollHeight,
     isSplit = _ref.isSplit;
@@ -43,7 +44,8 @@ var Dropdown = function Dropdown(_ref) {
     };
   }, []);
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "".concat(_dropdownModule.default.dropdown, " ").concat(dropdownClass.dropdown)
+    className: "".concat(_dropdownModule.default.dropdown, " ").concat(dropdownClass.dropdown),
+    style: dropdownStyle
   }, /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     ref: buttonRef,

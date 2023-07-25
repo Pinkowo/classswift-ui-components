@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import style from './dropdown.module.css';
 import { ReactComponent as ArrowDown } from './assets/Icon_Arrow_01_Default.svg';
 
-export const Dropdown = ({ value, setValue, children, dropdownClass, disabled, scrollHeight, isSplit }) => {
+export const Dropdown = ({ value, setValue, children, dropdownClass, dropdownStyle, disabled, scrollHeight, isSplit }) => {
     const [openModal, setOpenModal] = useState(false);
     const modalRef = useRef(null);
     const buttonRef = useRef(null);
@@ -26,7 +26,7 @@ export const Dropdown = ({ value, setValue, children, dropdownClass, disabled, s
     }, []);
 
     return (
-        <div className={`${style.dropdown} ${dropdownClass.dropdown}`}>
+        <div className={`${style.dropdown} ${dropdownClass.dropdown}`} style={dropdownStyle}>
             <button type="button" ref={buttonRef} className={`${disabled ? style.disabledSelect : style.select} 
             ${dropdownClass.select} ${openModal && !disabled ? isSplit ? style.selectedSplit : style.selected : ''}`}
                 onClick={() => setOpenModal(!openModal)}>

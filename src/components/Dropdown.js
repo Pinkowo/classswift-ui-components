@@ -30,7 +30,9 @@ export const Dropdown = ({ value, setValue, children, dropdownClass, dropdownSty
             <button type="button" ref={buttonRef} className={`${disabled ? style.disabledSelect : style.select} 
             ${dropdownClass.select} ${openModal && !disabled ? isSplit ? style.selectedSplit : style.selected : ''}`}
                 onClick={() => setOpenModal(!openModal)}>
-                {value}
+                <div className={style.buttonBox}>
+                    {value}
+                </div>
                 <ArrowDown className={style.arrow} />
             </button>
             <div ref={modalRef} style={{ maxHeight: scrollHeight }}
@@ -64,8 +66,11 @@ export const DropButton = ({ text, value, setValue, onClick, setOpenModal, modal
             type="button"
             ref={buttonRef}
             onClick={handleClick}
-            style={{ color: value === text ? '#0A8CF0' : '#000' }}>
-            {text}
+            style={{ color: value === text ? '#0A8CF0' : '#000' }}
+            className={style.dropButton}>
+            <div className={style.buttonBox}>
+                {text}
+            </div>
         </button>
     );
 };

@@ -24,7 +24,6 @@
 }
 
 .input {
-    width: 100%;
     height: var(--height);
     background-color: #fff;
     border: 1px solid #BDBDBD;
@@ -36,6 +35,7 @@
     letter-spacing: 0.51px;
     color: #000000;
     box-sizing: border-box;
+    padding-top: 2px;
 }
 
 .input:focus {

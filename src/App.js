@@ -15,9 +15,9 @@ function App() {
       <Input text="帳號" type="text" placeholder='請輸入帳號' inputStyle={{ width: 182 }}
         value={value} setValue={setValue} inputClass={style.input} maxLength={20} />
 
-      <Dropdown value={dropValue} setValue={setDropValue} disabled
+      <Dropdown value={dropValue} setValue={setDropValue} dropdownStyle={{ width: 120 }} isSplit disabled
         dropdownClass={{ dropdown: style.dropdown, select: style.select, modal: style.modal }}>
-        <DropButton text="管理員" onClick={() => console.log('1')} />
+        <DropButton text="管理員管理員管理員管理員" onClick={() => console.log('1')} />
         <DropButton text="教師" onClick={() => console.log('2')} />
         <DropButton text="學生" onClick={() => console.log('3')} />
       </Dropdown>

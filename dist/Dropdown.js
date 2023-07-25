@@ -53,7 +53,9 @@ var Dropdown = function Dropdown(_ref) {
     onClick: function onClick() {
       return setOpenModal(!openModal);
     }
-  }, value, /*#__PURE__*/_react.default.createElement(_Icon_Arrow_01_Default.ReactComponent, {
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: _dropdownModule.default.buttonBox
+  }, value), /*#__PURE__*/_react.default.createElement(_Icon_Arrow_01_Default.ReactComponent, {
     className: _dropdownModule.default.arrow
   })), /*#__PURE__*/_react.default.createElement("div", {
     ref: modalRef,
@@ -97,7 +99,10 @@ var DropButton = function DropButton(_ref2) {
     onClick: handleClick,
     style: {
       color: value === text ? '#0A8CF0' : '#000'
-    }
-  }, text);
+    },
+    className: _dropdownModule.default.dropButton
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: _dropdownModule.default.buttonBox
+  }, text));
 };
 exports.DropButton = DropButton;

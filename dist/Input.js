@@ -97,7 +97,7 @@ var InputContent = function InputContent(_ref) {
     onBlur: onBlur,
     className: "".concat(_inputModule.default.input, " \n            ").concat(isError && !disabled ? _inputModule.default.error : '', "\n            ").concat(disabled ? _inputModule.default.inputDisabled : ''),
     style: {
-      paddingRight: maxLength ? 68 : 0
+      paddingRight: maxLength ? 60 : 0
     },
     disabled: disabled
   });

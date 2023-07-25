@@ -5,9 +5,21 @@
 }
 
 .dropdown button {
-    padding-left: 15px;
+    padding: 0 15px;
     font: normal normal normal 16px/22px Source Sans Pro;
     width: 100%;
+    line-height: 150%;
+}
+
+.buttonBox {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.select>.buttonBox,
+.disabledSelect>.buttonBox {
+    padding-right: 20px;
 }
 
 .select {
@@ -18,8 +30,6 @@
     transition: 0.3s ease;
     position: relative;
     line-height: 83%;
-    padding: 0;
-
     height: 100%;
     border: 1px solid #BDBDBD;
     color: #000000;
@@ -42,7 +52,6 @@
     align-items: center;
     transition: 0.3s ease;
     position: relative;
-    line-height: 83%;
 
     height: 100%;
     border: 1px solid #BDBDBD;
@@ -51,7 +60,7 @@
 
 .arrow {
     position: absolute;
-    right: 16px;
+    right: 10px;
     transition: 0.3s ease;
 }
 

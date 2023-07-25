@@ -62,7 +62,7 @@ export const InputContent = ({ type = 'text', name, placeholder, value, setValue
             className={`${style.input} 
             ${isError && !disabled ? style.error : ''}
             ${disabled ? style.inputDisabled : ''}`}
-            style={{ paddingRight: maxLength ? 68 : 0 }}
+            style={{ paddingRight: maxLength ? 60 : 0 }}
             disabled={disabled}
         />
     );

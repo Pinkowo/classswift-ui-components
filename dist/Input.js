@@ -96,16 +96,21 @@ var InputContent = function InputContent(_ref) {
     onFocus: onFocus,
     onBlur: onBlur,
     className: "".concat(_inputModule.default.input, " \n            ").concat(isError && !disabled ? _inputModule.default.error : '', "\n            ").concat(disabled ? _inputModule.default.inputDisabled : ''),
+    style: {
+      paddingRight: maxLength ? 68 : 0
+    },
     disabled: disabled
   });
 };
 exports.InputContent = InputContent;
 var Label = function Label(_ref2) {
   var text = _ref2.text,
+    labelStyle = _ref2.labelStyle,
     _ref2$hasStar = _ref2.hasStar,
     hasStar = _ref2$hasStar === void 0 ? true : _ref2$hasStar;
   return /*#__PURE__*/_react.default.createElement("label", {
-    className: _inputModule.default.label
+    className: _inputModule.default.label,
+    style: labelStyle
   }, text, hasStar && /*#__PURE__*/_react.default.createElement("span", {
     className: _inputModule.default.star
   }, "*"));

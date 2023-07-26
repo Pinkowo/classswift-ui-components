@@ -70,6 +70,15 @@
 
 .selected {
     border-radius: var(--corner) var(--corner) 0 0;
+}
+
+.selectedSplit {
+    border-radius: var(--corner);
+}
+
+.selected,
+.selectedSplit {
+    background-color: #F5F5F5;
     transition: 0.3s ease;
 }
 
@@ -93,15 +102,11 @@
     overflow-x: hidden;
 }
 
-.selectedSplit {
-    border-radius: var(--corner);
-    transition: 0.3s ease;
-}
-
 .modalSplit {
     top: calc(100% + 8px);
     border-radius: var(--corner);
     border-top: 1px solid #BDBDBD;
+    box-shadow: 0px 0px 6px #D6D6D6;
 }
 
 .modal button {

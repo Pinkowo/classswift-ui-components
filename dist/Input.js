@@ -85,6 +85,7 @@ var InputContent = function InputContent(_ref) {
     if (type === 'password' && !(0, _validation.validatePassword)(value)) setIsError(true);
     if (type === 'tel' && !(0, _validation.validatePhone)(value)) setIsError(true);
     if (name === 'passwordConfirm' && value !== form.password) setIsError(true);
+    if (maxLength) setValue(value.substring(0, maxLength));
   };
   return /*#__PURE__*/_react.default.createElement("input", {
     type: showPassword ? 'text' : type,

@@ -47,6 +47,7 @@ export const InputContent = ({ type = 'text', name, placeholder, value, setValue
         if (type === 'password' && !validatePassword(value)) setIsError(true);
         if (type === 'tel' && !validatePhone(value)) setIsError(true);
         if (name === 'passwordConfirm' && value !== form.password) setIsError(true);
+        if (maxLength) setValue(value.substring(0, maxLength));
     };
 
     return (

@@ -100,7 +100,8 @@ var InputContent = function InputContent(_ref) {
     style: {
       paddingRight: maxLength ? 60 : 0
     },
-    disabled: disabled
+    disabled: disabled,
+    autocomplete: "on"
   });
 };
 exports.InputContent = InputContent;

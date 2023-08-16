@@ -65,6 +65,7 @@ export const InputContent = ({ type = 'text', name, placeholder, value, setValue
             ${disabled ? style.inputDisabled : ''}`}
             style={{ paddingRight: maxLength ? 60 : 0 }}
             disabled={disabled}
+            autocomplete="on"
         />
     );
 };

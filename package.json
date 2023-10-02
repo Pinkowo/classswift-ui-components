@@ -1,6 +1,6 @@
 {
   "name": "@classswift/ui-components",
-  "version": "0.3.13",
+  "version": "0.3.14",
   "main": "dist/index.js",
   "private": false,
   "files": [

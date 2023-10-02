@@ -53,14 +53,14 @@ var InputContent = function InputContent(_ref) {
     showPassword = _ref.showPassword,
     form = _ref.form,
     maxLength = _ref.maxLength,
-    _ref$error = _ref.error,
-    error = _ref$error === void 0 ? false : _ref$error,
-    _ref$disabled = _ref.disabled,
-    disabled = _ref$disabled === void 0 ? false : _ref$disabled;
+    error = _ref.error,
+    disabled = _ref.disabled,
+    hasStar = _ref.hasStar;
   var _useState3 = (0, _react.useState)(error),
     _useState4 = _slicedToArray(_useState3, 2),
     isError = _useState4[0],
     setIsError = _useState4[1];
+  var flag = false;
   (0, _react.useEffect)(function () {
     if (error) setIsError(error);
   }, [error]);
@@ -68,19 +68,26 @@ var InputContent = function InputContent(_ref) {
     if (name === 'passwordConfirm' && value !== form.password) setIsError(true);
     if (name === 'passwordConfirm' && value === form.password) setIsError(false);
   }, [form, name, value]);
+  var detectValue = function detectValue(inputValue) {
+    if (maxLength) {
+      if (inputValue.length <= maxLength) setValue(inputValue);else setValue(inputValue.substring(0, maxLength));
+    }
+  };
   var onChange = function onChange(e) {
-    return setValue(e.target.value);
+    if (flag) setValue(e.target.value);else detectValue(e.target.value);
+  };
+  var onCompositionStart = function onCompositionStart() {
+    flag = true;
   };
   var onCompositionEnd = function onCompositionEnd() {
-    if (maxLength) {
-      if (value.length <= maxLength) setValue(value);else setValue(value.substring(0, maxLength));
-    }
+    flag = false;
+    detectValue(value);
   };
   var onFocus = function onFocus() {
     return setIsError(false);
   };
   var onBlur = function onBlur() {
-    if (value === '') setIsError(true);
+    if (value === '' && hasStar) setIsError(true);
     if (type === 'email' && !(0, _validation.validateEmail)(value)) setIsError(true);
     if (type === 'password' && !(0, _validation.validatePassword)(value)) setIsError(true);
     if (type === 'tel' && !(0, _validation.validatePhone)(value)) setIsError(true);
@@ -93,12 +100,13 @@ var InputContent = function InputContent(_ref) {
     name: name,
     placeholder: placeholder,
     onChange: onChange,
+    onCompositionStart: onCompositionStart,
     onCompositionEnd: onCompositionEnd,
     onFocus: onFocus,
     onBlur: onBlur,
     className: "".concat(_inputModule.default.input, " \n            ").concat(isError && !disabled ? _inputModule.default.error : '', "\n            ").concat(disabled ? _inputModule.default.inputDisabled : ''),
     style: {
-      paddingRight: maxLength ? 60 : 0
+      paddingRight: maxLength ? 60 : 16
     },
     disabled: disabled,
     autoComplete: "on"

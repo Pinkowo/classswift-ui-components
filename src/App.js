@@ -13,7 +13,7 @@ function App() {
       <Button text="註冊" onClick={handleClick} disabled />
 
       <Input text="帳號" type="text" placeholder='請輸入帳號' inputStyle={{ width: 182 }}
-        value={value} setValue={setValue} inputClass={style.input} maxLength={20} />
+        value={value} setValue={setValue} inputClass={style.input} />
 
       <Dropdown value={dropValue} setValue={setDropValue} dropdownStyle={{ width: 120 }}
         dropdownClass={{ dropdown: style.dropdown, select: style.select, modal: style.modal }}>

@@ -21,8 +21,9 @@ export const Input = (props) => {
 
 
 export const InputContent = ({ type = 'text', name, placeholder, value, setValue, showPassword, form, maxLength,
-    error = false, disabled = false }) => {
+    error, disabled, hasStar }) => {
     const [isError, setIsError] = useState(error);
+    let flag = false;
 
     useEffect(() => {
         if (error) setIsError(error);
@@ -33,16 +34,26 @@ export const InputContent = ({ type = 'text', name, placeholder, value, setValue
         if (name === 'passwordConfirm' && value === form.password) setIsError(false);
     }, [form, name, value])
 
-    const onChange = (e) => setValue(e.target.value);
-    const onCompositionEnd = () => {
+    const detectValue = (inputValue) => {
         if (maxLength) {
-            if (value.length <= maxLength) setValue(value);
-            else setValue(value.substring(0, maxLength));
+            if (inputValue.length <= maxLength) setValue(inputValue);
+            else setValue(inputValue.substring(0, maxLength));
         }
+    }
+    const onChange = (e) => {
+        if (flag) setValue(e.target.value);
+        else detectValue(e.target.value)
+    }
+    const onCompositionStart = () => {
+        flag = true;
+    }
+    const onCompositionEnd = () => {
+        flag = false;
+        detectValue(value);
     }
     const onFocus = () => setIsError(false);
     const onBlur = () => {
-        if (value === '') setIsError(true);
+        if (value === '' && hasStar) setIsError(true);
         if (type === 'email' && !validateEmail(value)) setIsError(true);
         if (type === 'password' && !validatePassword(value)) setIsError(true);
         if (type === 'tel' && !validatePhone(value)) setIsError(true);
@@ -57,13 +68,14 @@ export const InputContent = ({ type = 'text', name, placeholder, value, setValue
             name={name}
             placeholder={placeholder}
             onChange={onChange}
+            onCompositionStart={onCompositionStart}
             onCompositionEnd={onCompositionEnd}
             onFocus={onFocus}
             onBlur={onBlur}
             className={`${style.input} 
             ${isError && !disabled ? style.error : ''}
             ${disabled ? style.inputDisabled : ''}`}
-            style={{ paddingRight: maxLength ? 60 : 0 }}
+            style={{ paddingRight: maxLength ? 60 : 16 }}
             disabled={disabled}
             autoComplete="on"
         />

@@ -41,7 +41,7 @@ export const InputContent = ({ type = 'text', name, placeholder, value, setValue
         }
     }
     const onChange = (e) => {
-        if (flag) setValue(e.target.value);
+        if (flag || !maxLength) setValue(e.target.value);
         else detectValue(e.target.value)
     }
     const onCompositionStart = () => {

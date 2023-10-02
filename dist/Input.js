@@ -74,7 +74,7 @@ var InputContent = function InputContent(_ref) {
     }
   };
   var onChange = function onChange(e) {
-    if (flag) setValue(e.target.value);else detectValue(e.target.value);
+    if (flag || !maxLength) setValue(e.target.value);else detectValue(e.target.value);
   };
   var onCompositionStart = function onCompositionStart() {
     flag = true;
